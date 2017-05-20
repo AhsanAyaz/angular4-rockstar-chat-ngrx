@@ -17,12 +17,12 @@ let lastAction: Action = {
     payload: null
 };
 
-export const messagesFilter = (state = message => message, action: Action) => {
+export const messagesFilter: ActionReducer<any> = (state = message => message, action: Action) => {
     lastAction = (action.type === SHOW_ALL || action.type === SHOW_MINE) ? action : lastAction;
     switch (lastAction.type) {
-        case 'SHOW_ALL':
+        case SHOW_ALL:
             return message => message;
-        case 'SHOW_MINE':
+        case SHOW_MINE:
             return message => message.userId === lastAction.payload;
         default:
             return message => message;

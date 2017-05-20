@@ -1,3 +1,6 @@
+[![CI Status](http://img.shields.io/travis/AhsanAyaz/angular4-rockstar-chat-ngrx.svg?style=flat)](https://travis-ci.org/AhsanAyaz/angular4-rockstar-chat-ngrx)
+
+
 # Angular4Rockstar-NgRx
 
 Author: Ahsan Ayaz
@@ -6,7 +9,8 @@ This project is created for the 3rd meetup of ngPakistan and was generated with 
 
 ## App Details
 
-The app is built on top the basic version of [Angular4Rockstar Chat](https://github.com/AhsanAyaz/angular4-rockstar-chat) project
+The app is built on top the basic version of [Angular4Rockstar Chat](https://github.com/AhsanAyaz/angular4-rockstar-chat) project with the inclusion of @ngrx/store usage.
+
 There're two simple pages: 
 1) Landing Page
 2) Chat Page (home)
@@ -24,9 +28,12 @@ home (chat page)
 
 ## How the components work / Data Flow
 
+With the use of @ngrx/store, we have eliminated the component interaction using `@Input` and `@Output` with `EventEmmitter` of course.
+
 - The `ar-chat` component is the parent and `ar-chat-messages` and `ar-write-message` are the children.
 
-- The `ar-chat` component loads the initial messages using `loadMessages` method utilizing  `chatService.getMessages()` 
+- The `ar-chat` component loads the initial messages using `loadMessages` method utilizing  `chatService.getMessages()`.
+  Then dispatches the action `LOAD_MESSAGES`.
   This sets the `State` of `messages` in `@ngrx/store` i.e. loads the message into state.
 
 - The `ar-chat-messages` which displays messages, loads the messages on `ngOnInit` and subscribes to it using the `messages$` model which is assigned an `Observable` from the `@ngrx/store`. Therefore the messages are displayed in the component.

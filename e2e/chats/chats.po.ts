@@ -2,7 +2,7 @@ import { browser, element, by } from 'protractor';
 
 export class ChatsPage {
   navigateTo() {
-    return browser.get('/chat');
+    return browser.get('/#chat');
   }
 
   getChatTitleText() {

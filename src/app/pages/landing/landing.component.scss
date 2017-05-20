@@ -1,0 +1,13 @@
+.landing-container{
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+    height: 100%;
+    .jumbotron{
+        text-align: center;
+    }
+    .author{
+        margin-top: 10px;
+    }
+}

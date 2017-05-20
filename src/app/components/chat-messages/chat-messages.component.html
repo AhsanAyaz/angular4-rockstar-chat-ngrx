@@ -1,0 +1,24 @@
+<div class="filters-container text-center">
+  <div class="btn-group" dropdown>
+    <button dropdownToggle type="button" class="btn btn-default pull-right  dropdown-toggle">
+      Filter: {{selectedFilter.text}} <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li *ngFor="let filter of filterOptions" (click)="applyFilter(filter);"><a href="javascript:void(0)">{{filter.text}}</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="messages-list" #messagesList [style.display]="messagesLength? 'block' : 'none'">
+  <div *ngFor="let message of messages$ | async" class="message-item" [ngClass]="{mine: message.userId === myId}">
+    <div class="from-user">
+      <img [src]="message.userImage">
+    </div>
+    <div class="message-text">{{message.text}}</div>
+    <div class="delete-btn btn btn-sm btn-danger" (click)="removeMessage(message)">x</div>
+  </div>
+</div>
+<div [style.display]="!messagesLength ? 'block' : 'none'">
+  <div class="text-center" id="noMessagesBlock">No messages to show</div>
+</div>
+

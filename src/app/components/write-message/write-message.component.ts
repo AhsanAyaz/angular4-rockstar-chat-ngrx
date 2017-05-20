@@ -22,12 +22,14 @@ export class WriteMessageComponent implements OnInit {
    * Creates a new message and emits to parent component
    */
   sendMessage() {
-    const id = Math.ceil(Math.random() * 1000 + 1);
-    const message: Message = this.chatService.processMessages([{id: id, text: this.chatInput}])[0];
-    this.store.dispatch({
-      type: 'ADD_MESSAGE',
-      payload: message
-    });
-    this.chatInput = '';
+    if (this.chatInput.trim().length) {
+      const id = Math.ceil(Math.random() * 1000 + 1);
+      const message: Message = this.chatService.processMessages([{id: id, text: this.chatInput}])[0];
+      this.store.dispatch({
+        type: 'ADD_MESSAGE',
+        payload: message
+      });
+      this.chatInput = '';
+    }
   }
 }

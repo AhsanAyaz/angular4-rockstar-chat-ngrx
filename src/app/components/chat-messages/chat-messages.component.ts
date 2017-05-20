@@ -28,13 +28,12 @@ export class ChatMessagesComponent implements OnInit {
     text: 'Show Mine',
     payload: this.myId
   }];
-  constructor(private store: Store<any>) {
-    this.applyFilter(this.filterOptions[0]);  // apply SHOW_ALL filter initially
-    this.fetchMessages();                     // fetch the messages from store
-  }
+  constructor(private store: Store<any>) {}
 
   ngOnInit() {
-      this.scrollToBottom();  // scroll to bottom on component init
+    this.applyFilter(this.filterOptions[0]);  // apply SHOW_ALL filter initially
+    this.fetchMessages();                     // fetch the messages from store
+    this.scrollToBottom();                    // scroll to bottom on component init
   }
 
 

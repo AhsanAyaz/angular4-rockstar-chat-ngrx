@@ -10,7 +10,7 @@ describe('angular4-rockstar App', () => {
 
   it('should display a heading with app title', () => {
     page.navigateTo();
-    expect(page.getChatTitleText()).toEqual('Angular4 Rockstar Chat');
+    expect(page.getChatTitleText()).toEqual('Angular4 Rockstar Chat - NgRx');
   });
 
 
@@ -30,7 +30,6 @@ describe('angular4-rockstar App', () => {
       const messages = page.getMessages();
       const count = messages.count();
       expect(count).toBe(5);
-      browser.pause();   // TODO: [Ahsan] remove this, this is just temporary to pause the browser after finishing test for now
   });
 
 });

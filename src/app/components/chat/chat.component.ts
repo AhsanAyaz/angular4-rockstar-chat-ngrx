@@ -19,13 +19,9 @@ export class ChatComponent implements OnInit {
    * This function below fetches the initial messages from the ChatService
    * Currently the dummy messages
    */
-  loadMessages(): void{
-    this.chatService.getMessages()
-      .subscribe((messages: Array<Message>) => {
-        this.store.dispatch({
-          type: 'LOAD_MESSAGES',
-          payload: messages
-        });
-      });
+  loadMessages(): void {
+    this.store.dispatch({
+      type: 'LOAD_MESSAGES'
+    });
   }
 }

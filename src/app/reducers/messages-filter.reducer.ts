@@ -1,9 +1,3 @@
-/*
-    {
-        type: string,
-        payload?: any
-    }
-*/
 
 import { ActionReducer, Action } from '@ngrx/store';
 

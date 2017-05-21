@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WriteMessageComponent } from './write-message.component';
 
-xdescribe('WriteMessageComponent', () => {
+describe('WriteMessageComponent', () => {
   let component: WriteMessageComponent;
   let fixture: ComponentFixture<WriteMessageComponent>;
 

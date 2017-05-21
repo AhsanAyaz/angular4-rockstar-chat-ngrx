@@ -1,19 +1,24 @@
 import { async, ComponentFixture, TestBed, fakeAsync, inject, tick } from '@angular/core/testing';
+import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
 
 import { ChatComponent } from './chat.component';
 import { ChatService, messages } from '../../providers/chat.service';
 import { MockChatService } from '../../mock-providers/mock-chat.service';
 import { Store } from '@ngrx/store';
 import { MockStoreService } from 'app/mock-providers/mock-store.service';
+import { ChatEffects } from '../../effects/chat.effects';
 
-describe('ChatComponent', () => {
+fdescribe('ChatComponent', () => {
   let component: ChatComponent;
   let fixture: ComponentFixture<ChatComponent>;
+  let runner, chatEffects;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ChatComponent ],
+      imports: [EffectsTestingModule],
       providers: [
+        ChatEffects,
         { provide: ChatService, useClass: MockChatService },
         { provide: Store, useClass: MockStoreService },
       ]
@@ -23,6 +28,14 @@ describe('ChatComponent', () => {
                       `)
     .compileComponents();
   }));
+  beforeEach(inject([
+      EffectsRunner, ChatEffects
+    ],
+    (_runner, _chatEffects) => {
+      runner = _runner;
+      chatEffects = _chatEffects;
+    }
+  ));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ChatComponent);
@@ -34,14 +47,11 @@ describe('ChatComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load inital messages from chat service and dispatch load event',
-    fakeAsync(inject([ChatService, Store], (chatService, MockStoreService) => {
-    spyOn(MockStoreService, 'dispatch');
+  it('should load inital messages from chat service and emit LOAD_MESSAGES_SUCCESS', fakeAsync(() => {
+    runner.queue({ type: 'LOAD_MESSAGES' });
     component.ngOnInit();
-    fixture.detectChanges();
-    expect(MockStoreService.dispatch).toHaveBeenCalledWith({
-      type: 'LOAD_MESSAGES',
-      payload: messages
+    chatEffects.getMessages$.subscribe(result => {
+      expect(result).toEqual({ type: 'LOAD_MESSAGES_SUCCESS', payload: messages });
     });
-  })));
+  }));
 });

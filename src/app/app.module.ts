@@ -15,8 +15,10 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { ChatService } from './providers/chat.service';
 import { LandingComponent } from './pages/landing/landing.component';
 import { StoreModule } from '@ngrx/store';
-import { messages } from './reducers/messages';
-import { messagesFilter } from './reducers/messages-filter';
+import { EffectsModule } from '@ngrx/effects';
+import { ChatEffects } from './effects/chat.effects';
+import { messages } from './reducers/messages.reducer';
+import { messagesFilter } from './reducers/messages-filter.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { messagesFilter } from './reducers/messages-filter';
     }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
-    })
+    }),
+    EffectsModule.run(ChatEffects)
   ],
   providers: [
     ChatService

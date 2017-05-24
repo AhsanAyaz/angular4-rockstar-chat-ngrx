@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../../models/message';
-import { ChatService } from '../../providers';
 import { Store } from '@ngrx/store';
 @Component({
   selector: 'ar-chat',
@@ -8,7 +7,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  constructor(private chatService: ChatService, private store: Store<any>) { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
     this.loadMessages();
@@ -16,7 +15,7 @@ export class ChatComponent implements OnInit {
 
   /**
    * @author Ahsan Ayaz
-   * This function below fetches the initial messages from the ChatService
+   * This function below dispatches the LOAD_MESSAGES action which fetches the message in the store
    * Currently the dummy messages
    */
   loadMessages(): void {

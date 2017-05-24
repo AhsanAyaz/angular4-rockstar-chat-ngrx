@@ -15,7 +15,7 @@ export class ChatEffects {
         // If successful, dispatch success action with result
         .map(res => ({ type: 'LOAD_MESSAGES_SUCCESS', payload: res }))
         // If request fails, dispatch failed action
-        .catch(() => Observable.of({ type: 'LOAD_MESSAGES_FAILURE' }))
+        .catch(() => Observable.of({ type: 'LOAD_MESSAGES_FAILURE', payload: [] }))
         );
     constructor(
         private chatService: ChatService,

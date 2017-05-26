@@ -1,4 +1,7 @@
 [![CI Status](http://img.shields.io/travis/AhsanAyaz/angular4-rockstar-chat-ngrx.svg?style=flat)](https://travis-ci.org/AhsanAyaz/angular4-rockstar-chat-ngrx)
+[![Dependency Status](https://david-dm.org/AhsanAyaz/angular4-rockstar-chat-ngrx/status.svg)](https://david-dm.org/AhsanAyaz/angular4-rockstar-chat-ngrx#info=dependencies) 
+[![Devdependency Status](https://david-dm.org/AhsanAyaz/angular4-rockstar-chat-ngrx/dev-status.svg)](https://david-dm.org/AhsanAyaz/angular4-rockstar-chat-ngrx#info=devDependencies) 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b5fc728b889a447da22b07bfdabef724)](https://www.codacy.com/app/AhsanAyaz/angular4-rockstar-chat-ngrx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AhsanAyaz/angular4-rockstar-chat-ngrx&amp;utm_campaign=Badge_Grade)
 
 
 # Angular4Rockstar-NgRx
@@ -6,6 +9,12 @@
 Author: Ahsan Ayaz
 
 This project is created for the 3rd meetup of ngPakistan and was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0
+
+<p align="centeR"><img src="https://media.giphy.com/media/xUPGcjSzNd3raVK7MA/giphy.gif"></p>
+
+## Live DEMO
+
+[Angular4 Rockstar Chat - Ngrx](https://ahsanayaz.github.io/angular4-rockstar-chat-ngrx/#/)
 
 ## App Details
 

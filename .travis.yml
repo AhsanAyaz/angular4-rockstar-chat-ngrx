@@ -18,9 +18,9 @@ before_script:
  - sudo dpkg -i google-chrome*.deb
 
 script: 
-  - ng test --watch false
+  - ng test --watch false -cc
   - npm run e2e
-  - ng build -bh "https://ahsanayaz.github.io/angular4-rockstar-chat-ngrx/"
+  - ng build -bh "https://ahsanayaz.github.io/angular4-rockstar-chat-ngrx/" --prod
 
 deploy:
   provider: pages

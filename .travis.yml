@@ -20,7 +20,7 @@ before_script:
 script: 
   - ng test --watch false -cc
   - npm run e2e
-  - ng build -bh "https://ahsanayaz.github.io/angular4-rockstar-chat-ngrx/" --prod
+  - ng build -bh "https://ahsanayaz.github.io/angular4-rockstar-chat-ngrx/"
 
 deploy:
   provider: pages

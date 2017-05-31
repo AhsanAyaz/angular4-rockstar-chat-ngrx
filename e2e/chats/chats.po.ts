@@ -9,15 +9,15 @@ export class ChatsPage {
     return element(by.css('ar-chat .heading')).getText();
   }
 
-  getMessages(){
+  getMessages() {
       return element.all(by.css('ar-chat-messages .message-item'));
   }
 
-  getNewMessageInput(){
+  getNewMessageInput() {
       return element(by.css('.write-box .chat-input'));
   }
 
-  getMsgSubmitBtn(){
+  getMsgSubmitBtn() {
       return element(by.css('.send-button .btn'));
   }
 
